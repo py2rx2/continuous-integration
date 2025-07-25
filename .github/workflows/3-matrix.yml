@@ -1,22 +1,25 @@
-name: Hello World CI
+name: Go Test With Matrix 
 
 on:
   push:
     branches:
-      - "2-explore"
+      - "3-matrix"
 
   workflow_dispatch:
 
 jobs:
  test:
-    name: Run Go Tests
+    name: Test on Go ${{ matrix.go-version}} 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: ['1.21', '1.24', '1.23']
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Go
+      - name: Set up Go ${{matrix.go-version}}
         uses: actions/setup-go@v5
         with:
           go-version: '1.22' 
