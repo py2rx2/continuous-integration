@@ -3,7 +3,7 @@ name: script js
 on:
   push:
     branches:
-      - "4-script-je"
+      - "4-script-js"
 
   workflow_dispatch:
 
