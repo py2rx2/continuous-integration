@@ -1,14 +1,17 @@
 name: Hello World CI
 
-on: [push] # This action runs on every push to the repository
+on:
+  push:
+    branches:
+      - "1-explore"
+
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest # The type of runner that the job will run on
-
+    runs-on: ubuntu-latest 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4 # This step checks out your repository under $GITHUB_WORKSPACE, so your workflow can access it.
-
+      uses: actions/checkout@v4 
     - name: Print Hello World
-      run: echo "Hello World!" # This command will simply print "Hello World!" to the console
+      run: echo "approve 1-explore branch" 
