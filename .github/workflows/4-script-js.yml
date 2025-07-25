@@ -1,4 +1,4 @@
-name: Go Test With Matrix 
+name: script js
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
  test:
-    name: Test on Go 
+    name: Test on js
     runs-on: ubuntu-latest
 
     steps:
