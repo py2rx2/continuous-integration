@@ -8,26 +8,24 @@ on:
   workflow_dispatch:
 
 jobs:
- test:
-    name: Test on js
-    runs-on: ubuntu-latest
+  run_js_script:
+    name: Run JavaScript Test
+    runs-on: ubuntu-latest 
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 
 
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' 
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20' 
+      - name: Run inline JavaScript script
+        run: |
+          console.log("Hello from inline JavaScript!");
+          const now = new Date();
+          console.log(`Current date and time: ${now.toLocaleString()}`);
+          console.log(`Repository name: ${{ github.repository }}`);
+        shell: node {0} 
 
-    - name: Run inline JavaScript script
-      run: |
-        console.log("Hello from inline JavaScript!");
-        const now = new Date();
-        console.log(`Current date and time: ${now.toLocaleString()}`);
-        console.log(`Repository name: ${{ github.repository }}`);
-      shell: node {0}
